@@ -65,7 +65,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[300px] sm:h-[680px] w-full">
+      <div className="relative h-[500px] sm:h-[480px] w-full">
         <Image
           src="/images/hero-bg3.jpg"
           alt="Hero"
@@ -127,7 +127,7 @@ export default function ProductsPage() {
             className="opacity-60"
           />
         </div>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-black">
           About Heama Products
         </h2>
         <p className="text-gray-700 text-base leading-relaxed">
@@ -160,11 +160,11 @@ export default function ProductsPage() {
       {/* Our Products Section */}
       <div id="our-products" className="max-w-7xl mx-auto px-6 sm:px-10 mt-40 mb-12">
         <div className="text-center mb-20 relative">
-          <h2 className="text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-1/2 after:bottom-0 after:transform after:-translate-x-1/2 after:w-0 after:animate-underline-draw">
+          <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-1/2 after:bottom-0 after:transform after:-translate-x-1/2 after:w-0 after:animate-underline-draw">
             Our Products
           </h2>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
           {[
             {
               title: "Hand Wash",
@@ -216,7 +216,7 @@ export default function ProductsPage() {
       {/* Our Chemicals Section */}
       <div id="our-chemicals" className="max-w-7xl mx-auto px-6 sm:px-10 mt-20">
         <div className="text-center relative">
-          <h2 className="text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-1/2 after:bottom-0 after:transform after:-translate-x-1/2 after:w-0 after:animate-underline-draw">
+          <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-1/2 after:bottom-0 after:transform after:-translate-x-1/2 after:w-0 after:animate-underline-draw">
             Our Chemicals
           </h2>
         </div>
@@ -243,7 +243,7 @@ export default function ProductsPage() {
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full border border-gray-300 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full border text-gray-600 border-gray-300 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <FaSearch className="absolute top-2.5 right-3 text-gray-500" />
           </div>
@@ -251,7 +251,7 @@ export default function ProductsPage() {
 
         {/* Chemical Products Section */}
         <div
-          className={`py-10 px-4 sm:px-10 grid gap-8 max-w-7xl mx-auto ${
+          className={`text-black py-10 px-4 sm:px-10 grid gap-8 max-w-7xl mx-auto ${
             viewType === "grid" ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1"
           }`}
         >
