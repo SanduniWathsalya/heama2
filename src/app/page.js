@@ -65,7 +65,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[500px] sm:h-[480px] w-full">
+      <div className="relative h-[350px] sm:h-[480px] w-full">
         <Image
           src="/images/hero-bg3.jpg"
           alt="Hero"
@@ -127,9 +127,11 @@ export default function ProductsPage() {
             className="opacity-60"
           />
         </div>
-        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-black">
-          About Heama Products
-        </h2>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-black inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
+  About Heama Products
+</h2>
+
+
         <p className="text-gray-700 text-base leading-relaxed">
           <strong>Heama Chemicals</strong> is a leading supplier and distributor of premium-quality industrial chemicals. With a strong commitment to safety, innovation, and customer satisfaction, we provide a wide range of chemical solutions for industrial, pharmaceutical, agricultural, and research applications worldwide.
         </p>
@@ -158,11 +160,15 @@ export default function ProductsPage() {
       </div>
 
       {/* Our Products Section */}
-      <div id="our-products" className="max-w-7xl mx-auto px-6 sm:px-10 mt-40 mb-12">
+      <div id="our-products" className="max-w-7xl mx-auto px-6 sm:px-10 mt-20 mb-12 lg:mb-40">
         <div className="text-center mb-20 relative">
-          <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-1/2 after:bottom-0 after:transform after:-translate-x-1/2 after:w-0 after:animate-underline-draw">
-            Our Products
-          </h2>
+        <h2 className="text-3xl font-bold text-black inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
+  Our Products
+</h2>
+
+
+
+
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
           {[
@@ -216,26 +222,18 @@ export default function ProductsPage() {
       {/* Our Chemicals Section */}
       <div id="our-chemicals" className="max-w-7xl mx-auto px-6 sm:px-10 mt-20">
         <div className="text-center relative">
-          <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-1/2 after:bottom-0 after:transform after:-translate-x-1/2 after:w-0 after:animate-underline-draw">
-            Our Chemicals
-          </h2>
+          <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
+  Our Chemicals
+</h2>
+
+
         </div>
 
         {/* View & Search Controls */}
         <div className="flex flex-col sm:flex-row justify-between items-center px-6 sm:px-10 py-4 max-w-7xl mx-auto gap-4">
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => setViewType("grid")}
-              className={`p-2 rounded-full hover:bg-gray-200 ${viewType === "grid" ? "bg-gray-300" : ""}`}
-            >
-              <FaTh />
-            </button>
-            <button
-              onClick={() => setViewType("list")}
-              className={`p-2 rounded-full hover:bg-gray-200 ${viewType === "list" ? "bg-gray-300" : ""}`}
-            >
-              <FaList />
-            </button>
+            
+            
           </div>
           <div className="relative w-full sm:w-1/4">
             <input

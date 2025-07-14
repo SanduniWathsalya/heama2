@@ -25,3 +25,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+@keyframes underline-loop {
+  0%, 30% {
+    width: 0;
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+    width: 0;
+  }
+  60% {
+    width: 100%;
+    opacity: 1;
+  }
+  80% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+.animate-underline-loop::after {
+  animation: underline-loop 5s ease-in-out infinite;
+}
