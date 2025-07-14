@@ -3,7 +3,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/f
 
 export default function Navbar() {
   return (
-    <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white p-4 rounded-b-xl shadow-lg flex items-center justify-between">
+    <nav className="bg-gradient-to-r from-blue-800 to-blue-600 text-white p-4 rounded-b-xl shadow-lg flex items-center justify-between mx-6 sm:mx-10">
       {/* Logo & Title */}
       <div className="flex items-center gap-2">
         <img src="/images/logo-removebg-preview.png" alt="logo" className="h-10 w-10 object-contain rounded-full" />

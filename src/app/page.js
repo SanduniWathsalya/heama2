@@ -59,7 +59,7 @@ export default function ProductsPage() {
 
   return (
     <main className="relative">
-      {/* Navbar */}
+      
       <div className="absolute top-5 left-0 w-full z-50">
         <Navbar />
       </div>
