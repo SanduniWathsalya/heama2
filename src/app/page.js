@@ -65,7 +65,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative h-[300px] sm:h-[480px] w-full">
+      <div className="relative h-[300px] sm:h-[680px] w-full">
         <Image
           src="/images/hero-bg3.jpg"
           alt="Hero"
