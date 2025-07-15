@@ -285,28 +285,26 @@ useEffect(() => {
         </div>
 
         {/* Hero Section */}
-        <div className="relative h-[500px] sm:h-[500px] w-full">
-          <Image
-            src="/images/hero-bg3.jpg"
-            alt="Hero"
-            layout="fill"
-            objectFit="fill"
-            className="z-0"
-          />
-          <div className="absolute inset-0 bg-transparent bg-opacity-70 pt-24 z-10 flex flex-col items-center justify-center text-black px-4 text-center">
-            <div
-              ref={heroTextRef}
-              className={`transition-opacity duration-1000 ease-in-out ${
-                isHeroVisible ? "fade-in-up" : "opacity-0"
-              }`}
-            >
-              <h2 className="text-sm uppercase">Home / Our Products</h2>
-              <h1 className="text-3xl sm:text-5xl font-bold hover:underline transition-all duration-300 cursor-pointer">
-                Products Portfolio
-              </h1>
-            </div>
-          </div>
+       <div className="relative h-[500px] sm:h-[500px] w-full">
+  <Image
+    src="/images/hero-bg5.jpg"
+    alt="Hero"
+    layout="fill"
+    objectFit="fill"
+    className="z-0 filter blur-sm"
+  />
+  <div className="absolute inset-0 bg-transparent bg-opacity-70 pt-24 z-10 flex flex-col items-center justify-center text-black px-4 text-center">
+    <div className="relative z-10 px-6 py-24 md:py-32 lg:py-40 text-center text-white">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6 drop-shadow">
+            Our Products
+          </h1>
+          <p className="max-w-3xl mx-auto text-lg md:text-xl font-medium leading-relaxed text-gray-200">
+            Our products are designed to deliver reliable performance and meet industry standards across cleaning, industrial, and specialty applications.
+          </p>
         </div>
+  </div>
+</div>
+
 
         {/* Scroll Prompt Section */}
         <div className="w-full flex flex-col items-center justify-center py-4 sm:py-6 bg-white relative z-20">
