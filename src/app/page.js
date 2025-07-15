@@ -374,11 +374,6 @@ useEffect(() => {
   )}
 </div>
 
-
-
-
-
-
  {/* ✅ Product Category Buttons Section */}
 <div
   ref={categoryButtonsRef}
@@ -407,14 +402,6 @@ useEffect(() => {
   </div>
 </div>
 
-      
-
-
-
-
-
-
-
         {/* About Heama Section */}
         <div className="max-w-5xl mx-auto px-6 text-center">
           <div className="flex items-center justify-center mb-4">
@@ -440,13 +427,13 @@ useEffect(() => {
         </div>
 
         {/* Two Images Section - Stacked on Mobile */}
-        {/* Two Images Section - Stacked on Mobile */}
+       
 <div
   ref={imagesRef}
   className="max-w-7xl mx-auto px-6 sm:px-10 mt-10 mb-10 flex flex-col sm:flex-row justify-center gap-6 sm:gap-20"
 >
   <div
-    className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[150px] ${
+    className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[250px] ${
       imagesVisible ? "slide-down-fade-in" : "opacity-0"
     }`}
   >
@@ -459,7 +446,7 @@ useEffect(() => {
     />
   </div>
   <div
-    className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[150px] ${
+    className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[250px] ${
       imagesVisible ? "slide-down-fade-in" : "opacity-0"
     }`}
   >
@@ -543,35 +530,7 @@ useEffect(() => {
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-        {/* Our Chemicals Section */}
+      {/* Our Chemicals Section */}
         {/* ✅ Scroll Target Space for "Our Chemicals" */}
 <div id="our-chemicals" className="h-4 sm:h-2"></div>
 
