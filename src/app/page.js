@@ -7,6 +7,7 @@ import {
   FaSearch,
   FaFlask,
   FaPumpSoap,
+  FaHandsWash
 } from "react-icons/fa";
 
 export default function ProductsPage() {
@@ -274,23 +275,24 @@ export default function ProductsPage() {
                   .getElementById("our-products")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="flex items-center gap-2 bg-blue-600 text-white px-6 py-2 rounded-full font-medium transition duration-200 ease-in-out transform hover:-translate-y-1 hover:bg-blue-700 shadow-md hover:shadow-lg"
-            >
+               className="inline-flex items-center gap-2 bg-blue-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105"
+          >
               <FaPumpSoap className="text-white text-lg" />
               Our Products
             </button>
 
             <button
-              onClick={() =>
-                document
-                  .getElementById("our-chemicals")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="flex items-center gap-2 bg-blue-100 text-blue-700 px-6 py-2 rounded-full font-medium transition duration-200 ease-in-out transform hover:-translate-y-1 hover:bg-blue-200 shadow-md hover:shadow-lg"
-            >
-              <FaFlask className="text-blue-700 text-lg" />
-              Our Chemicals
-            </button>
+  onClick={() =>
+    document
+      .getElementById("our-chemicals")
+      ?.scrollIntoView({ behavior: "smooth" })
+  }
+  className="inline-flex items-center gap-2 bg-gray-200 text-blue-800 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-blue-100 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-500 transition duration-300 transform hover:scale-105 will-change-transform animate-fade-in-up delay-300"
+>
+  <FaFlask className="text-blue-700 text-lg" />
+  Our Chemicals
+</button>
+
           </div>
 
           <div
@@ -306,6 +308,67 @@ export default function ProductsPage() {
             </div>
           </div>
         </div>
+
+{/* ✅ Additional Wash/Cleaning Product Buttons */}
+      <div className="mt-4 px-6 py-4  flex flex-wrap justify-center gap-10">
+        {["Hand Wash", "Dish Wash", "Tile Cleaner", "Hand Sanitizer"].map(
+          (item, index) => (
+            <button
+              key={index}
+              className="flex items-center gap-2 bg-white text-blue-900 font-medium px-4 py-2 rounded-full border border-blue-300 hover:bg-blue-200 transition duration-200 shadow-sm"
+            >
+              <FaHandsWash className="text-blue-700" />
+              {item}
+            </button>
+          )
+        )}
+      </div>
+
+
+
+
+
+ {/* Product Category Buttons Section */}
+      <div className="mt-5 px-6 py-6  space-y-4">
+        <div className="flex flex-wrap justify-center gap-4">
+          {[
+            "Basic Chromium Sulphate",
+            "Basic Chromium Sulphate Liquid",
+            "Boric Acid",
+            "Manganese Dioxide",
+          ].map((product, index) => (
+            <button
+              key={index}
+              className="flex items-center gap-2 bg-blue-200 text-blue-900 font-medium px-4 py-2 rounded-full hover:bg-blue-300 transition duration-200 shadow-sm"
+            >
+              <FaFlask className="text-blue-800" />
+              {product}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          {["Saccharin Sodium", "Sodium Nitrate", "Saccharin Insoluble"].map(
+            (product, index) => (
+              <button
+                key={index}
+                className="flex items-center gap-2 bg-blue-200 text-blue-900 font-medium px-4 py-2 rounded-full hover:bg-blue-300 transition duration-200 shadow-sm"
+              >
+                <FaFlask className="text-blue-800" />
+                {product}
+              </button>
+            )
+          )}
+        </div>
+      </div>
+
+      
+
+
+
+
+
+
 
         {/* About Heama Section */}
         <div className="max-w-5xl mx-auto px-6 text-center">
@@ -429,6 +492,34 @@ export default function ProductsPage() {
             ))}
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
         {/* Our Chemicals Section */}
         <div
