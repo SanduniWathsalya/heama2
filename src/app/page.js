@@ -16,22 +16,22 @@ export default function ProductsPage() {
 
   const products = [
     {
-      title: "Basic Chromium Sulphate",
-      description:
-        "Used mainly in leather tanning, this compound provides excellent chromium content and stability.",
-      image: "/images/pro1.jpg",
-    },
-    {
       title: "Basic Chromium Sulphate Liquid",
       description:
         "A liquid form of chromium sulphate for easier application in industrial tanning processes.",
       image: "/images/pro2.jpg",
     },
     {
-      title: "Boric Acid",
+      title: "Basic Chromium Sulphate",
       description:
-        "Widely used in glass, ceramics, agriculture, and as a flame retardant in multiple industries.",
-      image: "/images/pro3.jpg",
+        "Used mainly in leather tanning, this compound provides excellent chromium content and stability.",
+      image: "/images/pro1.jpg",
+    },
+     {
+      title: "Saccharin Insoluble",
+      description:
+        "A form of saccharin used in specialized formulations, especially where solubility control is important.",
+      image: "/images/pro7.jpg",
     },
     {
       title: "Manganese Dioxide",
@@ -39,7 +39,7 @@ export default function ProductsPage() {
         "Commonly used in dry-cell batteries and in the glass industry for coloring and oxidation.",
       image: "/images/pro4.jpg",
     },
-    {
+     {
       title: "Saccharin Sodium",
       description:
         "A calorie-free artificial sweetener used in food and beverages as a sugar substitute.",
@@ -51,12 +51,16 @@ export default function ProductsPage() {
         "Used in fertilizers, explosives, and as a preservative in the food industry.",
       image: "/images/pro6.jpg",
     },
+   
     {
-      title: "Saccharin Insoluble",
+      title: "Boric Acid",
       description:
-        "A form of saccharin used in specialized formulations, especially where solubility control is important.",
-      image: "/images/pro7.jpg",
+        "Widely used in glass, ceramics, agriculture, and as a flame retardant in multiple industries.",
+      image: "/images/pro3.jpg",
     },
+    
+   
+    
   ];
 
   const filteredProducts = products.filter((product) =>
@@ -240,7 +244,7 @@ export default function ProductsPage() {
         </div>
 
         {/* Hero Section */}
-        <div className="relative h-[350px] sm:h-[480px] w-full">
+        <div className="relative h-[500px] sm:h-[500px] w-full">
           <Image
             src="/images/hero-bg3.jpg"
             alt="Hero"
@@ -332,10 +336,14 @@ export default function ProductsPage() {
       <div className="mt-5 px-6 py-6  space-y-4">
         <div className="flex flex-wrap justify-center gap-4">
           {[
-            "Basic Chromium Sulphate",
             "Basic Chromium Sulphate Liquid",
-            "Boric Acid",
+            "Basic Chromium Sulphate",
+            "Saccharin Insoluble",
             "Manganese Dioxide",
+            "Saccharin Sodium",
+            "Sodium Nitrate",
+            "Boric Acid",
+            
           ].map((product, index) => (
             <button
               key={index}
@@ -347,19 +355,7 @@ export default function ProductsPage() {
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {["Saccharin Sodium", "Sodium Nitrate", "Saccharin Insoluble"].map(
-            (product, index) => (
-              <button
-                key={index}
-                className="flex items-center gap-2 bg-blue-200 text-blue-900 font-medium px-4 py-2 rounded-full hover:bg-blue-300 transition duration-200 shadow-sm"
-              >
-                <FaFlask className="text-blue-800" />
-                {product}
-              </button>
-            )
-          )}
-        </div>
+       
       </div>
 
       

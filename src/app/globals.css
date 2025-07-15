@@ -83,3 +83,7 @@ body {
     opacity: 1;
   }
 }
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
