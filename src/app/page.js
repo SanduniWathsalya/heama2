@@ -83,6 +83,14 @@ export default function ProductsPage() {
   const [visibleOurProducts, setVisibleOurProducts] = useState({});
   const ourProductsRefs = useRef([]);
 
+  // button sections
+  const [isWashButtonsVisible, setIsWashButtonsVisible] = useState(false);
+const washButtonsRef = useRef(null);
+
+const [isCategoryButtonsVisible, setIsCategoryButtonsVisible] = useState(false);
+const categoryButtonsRef = useRef(null);
+
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -183,6 +191,39 @@ export default function ProductsPage() {
     };
   }, []);
 
+   // button sections
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsWashButtonsVisible(true);
+        observer.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.2 }
+  );
+  if (washButtonsRef.current) observer.observe(washButtonsRef.current);
+  return () => {
+    if (washButtonsRef.current) observer.unobserve(washButtonsRef.current);
+  };
+}, []);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setIsCategoryButtonsVisible(true);
+        observer.unobserve(entry.target);
+      }
+    },
+    { threshold: 0.2 }
+  );
+  if (categoryButtonsRef.current) observer.observe(categoryButtonsRef.current);
+  return () => {
+    if (categoryButtonsRef.current) observer.unobserve(categoryButtonsRef.current);
+  };
+}, []);
+
   return (
     <>
       {/* Global styles for animations */}
@@ -249,7 +290,7 @@ export default function ProductsPage() {
             src="/images/hero-bg3.jpg"
             alt="Hero"
             layout="fill"
-            objectFit="cover"
+            objectFit="fill"
             className="z-0"
           />
           <div className="absolute inset-0 bg-transparent bg-opacity-70 pt-24 z-10 flex flex-col items-center justify-center text-black px-4 text-center">
@@ -307,56 +348,64 @@ export default function ProductsPage() {
             }
             className="cursor-pointer group relative"
           >
-            <div className="flex flex-col items-center animate-bounce text-blue-700 text-2xl mt-2">
+            <div className="flex flex-col items-center animate-bounce text-blue-700 text-2xl ">
               <FaArrowDown />
             </div>
           </div>
         </div>
 
 {/* ✅ Additional Wash/Cleaning Product Buttons */}
-      <div className="mt-4 px-6 py-4  flex flex-wrap justify-center gap-10">
-        {["Hand Wash", "Dish Wash", "Tile Cleaner", "Hand Sanitizer"].map(
-          (item, index) => (
-            <button
-              key={index}
-              className="flex items-center gap-2 bg-white text-blue-900 font-medium px-4 py-2 rounded-full border border-blue-300 hover:bg-blue-200 transition duration-200 shadow-sm"
-            >
-              <FaHandsWash className="text-blue-700" />
-              {item}
-            </button>
-          )
-        )}
-      </div>
+<div
+  ref={washButtonsRef}
+  className={`mt-4 px-6 py-4 flex flex-wrap justify-center gap-10 transform transition-all duration-700 ease-out ${
+    isWashButtonsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+>
+  {["Hand Wash", "Dish Wash", "Tile Cleaner", "Hand Sanitizer"].map(
+    (item, index) => (
+      <button
+        key={index}
+        className="flex items-center gap-2 bg-white text-blue-900 font-medium px-4 py-2 rounded-full border border-blue-300 hover:bg-blue-200 transition duration-200 shadow-sm"
+      >
+        <FaHandsWash className="text-blue-700" />
+        {item}
+      </button>
+    )
+  )}
+</div>
 
 
 
 
 
- {/* Product Category Buttons Section */}
-      <div className="mt-5 px-6 py-6  space-y-4">
-        <div className="flex flex-wrap justify-center gap-4">
-          {[
-            "Basic Chromium Sulphate Liquid",
-            "Basic Chromium Sulphate",
-            "Saccharin Insoluble",
-            "Manganese Dioxide",
-            "Saccharin Sodium",
-            "Sodium Nitrate",
-            "Boric Acid",
-            
-          ].map((product, index) => (
-            <button
-              key={index}
-              className="flex items-center gap-2 bg-blue-200 text-blue-900 font-medium px-4 py-2 rounded-full hover:bg-blue-300 transition duration-200 shadow-sm"
-            >
-              <FaFlask className="text-blue-800" />
-              {product}
-            </button>
-          ))}
-        </div>
 
-       
-      </div>
+ {/* ✅ Product Category Buttons Section */}
+<div
+  ref={categoryButtonsRef}
+  className={`mt-5 px-6 py-6 space-y-4 transform transition-all duration-700 ease-out ${
+    isCategoryButtonsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+  }`}
+>
+  <div className="flex flex-wrap justify-center gap-4">
+    {[
+      "Basic Chromium Sulphate Liquid",
+      "Basic Chromium Sulphate",
+      "Saccharin Insoluble",
+      "Manganese Dioxide",
+      "Saccharin Sodium",
+      "Sodium Nitrate",
+      "Boric Acid",
+    ].map((product, index) => (
+      <button
+        key={index}
+        className="flex items-center gap-2 bg-blue-200 text-blue-900 font-medium px-4 py-2 rounded-full hover:bg-blue-300 transition duration-200 shadow-sm"
+      >
+        <FaFlask className="text-blue-800" />
+        {product}
+      </button>
+    ))}
+  </div>
+</div>
 
       
 
@@ -391,103 +440,108 @@ export default function ProductsPage() {
         </div>
 
         {/* Two Images Section - Stacked on Mobile */}
-        <div
-          ref={imagesRef}
-          className="max-w-7xl mx-auto px-6 sm:px-10 mt-10 mb-10 flex flex-col sm:flex-row justify-center gap-6 sm:gap-20"
-        >
-          <div
-            className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[150px] ${
-              imagesVisible ? "slide-down-fade-in" : "opacity-0"
-            }`}
-          >
-            <Image
-              src="/images/im1.jpg"
-              alt="Image One"
-              width={400}
-              height={300}
-              className="object-cover w-full h-full"
-            />
-          </div>
-          <div
-            className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[150px] ${
-              imagesVisible ? "slide-down-fade-in" : "opacity-0"
-            }`}
-          >
-            <Image
-              src="/images/hero-bg4.jpg"
-              alt="Image Two"
-              width={400}
-              height={800}
-              className="object-cover w-full h-full"
-            />
-          </div>
-        </div>
+        {/* Two Images Section - Stacked on Mobile */}
+<div
+  ref={imagesRef}
+  className="max-w-7xl mx-auto px-6 sm:px-10 mt-10 mb-10 flex flex-col sm:flex-row justify-center gap-6 sm:gap-20"
+>
+  <div
+    className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[150px] ${
+      imagesVisible ? "slide-down-fade-in" : "opacity-0"
+    }`}
+  >
+    <Image
+      src="/images/im1.jpg"
+      alt="Image One"
+      width={400}
+      height={300}
+      className="object-cover w-full h-full"
+    />
+  </div>
+  <div
+    className={`overflow-hidden rounded-lg shadow-lg w-full sm:w-[300px] h-[150px] ${
+      imagesVisible ? "slide-down-fade-in" : "opacity-0"
+    }`}
+  >
+    <Image
+      src="/images/hero-bg4.jpg"
+      alt="Image Two"
+      width={400}
+      height={800}
+      className="object-cover w-full h-full"
+    />
+  </div>
+</div>
 
-        {/* Our Products Section */}
-        <div
-          id="our-products"
-          className="max-w-7xl mx-auto px-6 sm:px-10 mt-20 mb-12 lg:mb-40"
-        >
-          <div className="text-center mb-20 relative">
-            <h2 className="text-3xl font-bold text-black inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
-              Our Products
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
-            {[
-              {
-                title: "Hand Wash",
-                description:
-                  "Gentle and effective formula for clean, soft hands.",
-                image: "/images/handwash.jpg",
-              },
-              {
-                title: "Dishwash",
-                description:
-                  "Tough on grease, gentle on hands. Sparkling clean dishes every time.",
-                image: "/images/dishwash.jpg",
-              },
-              {
-                title: "Tile Cleaner",
-                description:
-                  "Removes tough stains and restores shine to tiles and surfaces.",
-                image: "/images/tilecleaner.jpg",
-              },
-              {
-                title: "Sanitizer",
-                description:
-                  "Fast-acting sanitizer to kill 99.9% of germs and bacteria.",
-                image: "/images/sani.jpg",
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                ref={(el) => (ourProductsRefs.current[index] = el)}
-                className={`bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col ${
-                  visibleOurProducts[index] ? "fade-in-up" : "opacity-0"
-                }`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  width={400}
-                  height={350}
-                  className="object-cover w-full h-60"
-                />
-                <div className="p-4 flex-1 w-full">
-                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-gray-600">{item.description}</p>
-                  <a
-                    href="#"
-                    className="text-blue-600 text-sm mt-2 inline-block hover:underline"
-                  >
-                    Read More
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+{/* ✅ Scroll Target Space for "Our Products" */}
+<div id="our-products" className="h-10 sm:h-20"></div>
+
+{/* ✅ Our Products Section (renamed ID) */}
+<div
+  id="products-content"
+  className="max-w-7xl mx-auto px-6 sm:px-10 mt-20 mb-12 lg:mb-40"
+>
+  <div className="text-center mb-20 relative">
+    <h2 className="text-3xl font-bold text-black inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
+      Our Products
+    </h2>
+  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
+    {[
+      {
+        title: "Hand Wash",
+        description:
+          "Gentle and effective formula for clean, soft hands.",
+        image: "/images/handwash.jpg",
+      },
+      {
+        title: "Dishwash",
+        description:
+          "Tough on grease, gentle on hands. Sparkling clean dishes every time.",
+        image: "/images/dishwash.jpg",
+      },
+      {
+        title: "Tile Cleaner",
+        description:
+          "Removes tough stains and restores shine to tiles and surfaces.",
+        image: "/images/tilecleaner.jpg",
+      },
+      {
+        title: "Sanitizer",
+        description:
+          "Fast-acting sanitizer to kill 99.9% of germs and bacteria.",
+        image: "/images/sani.jpg",
+      },
+    ].map((item, index) => (
+      <div
+        key={index}
+        ref={(el) => (ourProductsRefs.current[index] = el)}
+        className={`bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col ${
+          visibleOurProducts[index] ? "fade-in-up" : "opacity-0"
+        }`}
+      >
+        <Image
+          src={item.image}
+          alt={item.title}
+          width={400}
+          height={350}
+          className="object-cover w-full h-60"
+        />
+        <div className="p-4 flex-1 w-full">
+          <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+          <p className="text-sm text-gray-600">{item.description}</p>
+          <a
+            href="#"
+            className="text-blue-600 text-sm mt-2 inline-block hover:underline"
+          >
+            Read More
+          </a>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
+
 
 
 
@@ -518,72 +572,77 @@ export default function ProductsPage() {
         
 
         {/* Our Chemicals Section */}
-        <div
-          id="our-chemicals"
-          className="max-w-7xl mx-auto px-6 sm:px-10 mt-20"
-        >
-          <div className="text-center relative">
-            <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
-              Our Chemicals
-            </h2>
-          </div>
+        {/* ✅ Scroll Target Space for "Our Chemicals" */}
+<div id="our-chemicals" className="h-4 sm:h-2"></div>
 
-          {/* View & Search Controls */}
-          <div className="flex flex-col sm:flex-row justify-between items-center px-6 sm:px-10 py-4 max-w-7xl mx-auto gap-4">
-            <div className="flex items-center gap-4"></div>
-            <div className="relative w-full sm:w-1/4">
-              <input
-                type="text"
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full border text-gray-600 border-gray-300 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <FaSearch className="absolute top-2.5 right-3 text-gray-500" />
-            </div>
-          </div>
+{/* ✅ Our Chemicals Section (renamed ID) */}
+<div
+  id="chemicals-content"
+  className="max-w-7xl mx-auto px-6 sm:px-10 mt-20"
+>
+  <div className="text-center relative">
+    <h2 className="text-black text-3xl font-bold inline-block relative after:content-[''] after:block after:h-[3px] after:bg-blue-600 after:absolute after:left-0 after:bottom-0 after:w-0 animate-underline-loop">
+      Our Chemicals
+    </h2>
+  </div>
 
-          {/* Chemical Products Section */}
-          <div
-            className={`text-black py-10 px-4 sm:px-10 grid gap-8 max-w-7xl mx-auto ${
-              viewType === "grid" ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1"
-            }`}
+  {/* View & Search Controls */}
+  <div className="flex flex-col sm:flex-row justify-between items-center px-6 sm:px-10 py-4 max-w-7xl mx-auto gap-4">
+    <div className="flex items-center gap-4"></div>
+    <div className="relative w-full sm:w-1/4">
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="w-full border text-gray-600 border-gray-300 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <FaSearch className="absolute top-2.5 right-3 text-gray-500" />
+    </div>
+  </div>
+
+  {/* Chemical Products Section */}
+  <div
+    className={`text-black py-10 px-4 sm:px-10 grid gap-8 max-w-7xl mx-auto ${
+      viewType === "grid" ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1"
+    }`}
+  >
+    {filteredProducts.map((product, index) => (
+      <div
+        key={index}
+        ref={(el) => (productRefs.current[index] = el)}
+        className={`bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 ${
+          viewType === "grid"
+            ? "flex flex-col"
+            : "flex flex-col md:flex-row items-start gap-0 md:gap-4"
+        } ${visibleItems[index] ? "fade-in-up" : "opacity-0"}`}
+      >
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={viewType === "grid" ? 160 : 200}
+          height={viewType === "grid" ? 100 : 150}
+          className={`object-cover ${
+            viewType === "grid"
+              ? "w-full h-48"
+              : "w-full md:w-[200px] md:h-full"
+          }`}
+        />
+        <div className="p-4 flex-1 w-full">
+          <h3 className="font-semibold text-lg mb-2">{product.title}</h3>
+          <p className="text-sm text-gray-600">{product.description}</p>
+          <a
+            href="#"
+            className="text-blue-600 text-sm mt-2 inline-block hover:underline"
           >
-            {filteredProducts.map((product, index) => (
-              <div
-                key={index}
-                ref={(el) => (productRefs.current[index] = el)}
-                className={`bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 ${
-                  viewType === "grid"
-                    ? "flex flex-col"
-                    : "flex flex-col md:flex-row items-start gap-0 md:gap-4"
-                } ${visibleItems[index] ? "fade-in-up" : "opacity-0"}`}
-              >
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  width={viewType === "grid" ? 160 : 200}
-                  height={viewType === "grid" ? 100 : 150}
-                  className={`object-cover ${
-                    viewType === "grid"
-                      ? "w-full h-48"
-                      : "w-full md:w-[200px] md:h-full"
-                  }`}
-                />
-                <div className="p-4 flex-1 w-full">
-                  <h3 className="font-semibold text-lg mb-2">{product.title}</h3>
-                  <p className="text-sm text-gray-600">{product.description}</p>
-                  <a
-                    href="#"
-                    className="text-blue-600 text-sm mt-2 inline-block hover:underline"
-                  >
-                    Read More
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+            Read More
+          </a>
         </div>
+      </div>
+    ))}
+  </div>
+</div>
+
       </main>
     </>
   );
