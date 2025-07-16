@@ -70,3 +70,22 @@ System.Threading.Channels.ChannelClosedException: The channel has been closed.
 2025-07-15 11:10:11.432 +05:30 [VRB] Converting params for Notification $/setTrace to OmniSharp.Extensions.LanguageServer.Protocol.Models.SetTraceParams
 2025-07-15 11:10:11.662 +05:30 [DBG] Finished: Routing Notification $/setTrace in 229ms
 2025-07-15 11:10:11.716 +05:30 [DBG] Finished: Processing notification $/setTrace in 285ms
+2025-07-16 10:42:48.719 +05:30 [INF] This only goes file...
+2025-07-16 10:42:50.950 +05:30 [INF] Foo
+2025-07-16 10:42:51.245 +05:30 [DBG] Finding descriptors for initialize
+2025-07-16 10:42:51.785 +05:30 [DBG] Queueing "Serial":initialize:0 request for processing
+2025-07-16 10:42:51.837 +05:30 [DBG] Starting: Processing request initialize 0
+2025-07-16 10:42:51.839 +05:30 [DBG] Starting: Routing Request (0) initialize
+2025-07-16 10:42:51.842 +05:30 [VRB] Converting params for Request (0) initialize to OmniSharp.Extensions.LanguageServer.Protocol.Models.InternalInitializeParams
+2025-07-16 10:42:51.844 +05:30 [VRB] Converting params for Notification initialize to OmniSharp.Extensions.LanguageServer.Protocol.Models.InternalInitializeParams
+2025-07-16 10:42:54.428 +05:30 [VRB] Response value was OmniSharp.Extensions.LanguageServer.Protocol.Models.InitializeResult
+2025-07-16 10:42:54.467 +05:30 [DBG] Finished: Routing Request (0) initialize in 2626ms
+2025-07-16 10:42:54.468 +05:30 [DBG] Finished: Processing request initialize 0 in 2630ms
+2025-07-16 10:42:54.968 +05:30 [DBG] Finding descriptors for initialized
+2025-07-16 10:42:54.971 +05:30 [DBG] Queueing "Serial":initialized request for processing
+2025-07-16 10:42:54.991 +05:30 [DBG] Starting: Processing notification initialized
+2025-07-16 10:42:54.993 +05:30 [DBG] Starting: Routing Notification initialized
+2025-07-16 10:42:54.994 +05:30 [VRB] Converting params for Notification initialized to OmniSharp.Extensions.LanguageServer.Protocol.Models.InitializedParams
+2025-07-16 10:42:55.157 +05:30 [WRN] No ConfigurationItems have been defined, configuration won't surface any configuration from the client!
+2025-07-16 10:42:55.287 +05:30 [DBG] Finished: Routing Notification initialized in 292ms
+2025-07-16 10:42:55.287 +05:30 [DBG] Finished: Processing notification initialized in 295ms

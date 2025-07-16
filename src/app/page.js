@@ -279,8 +279,8 @@ useEffect(() => {
         }
       `}</style>
 
-      <main className="relative">
-        <div className="absolute top-5 left-0 w-full z-50">
+      <main className="relative bg-gradient-to-r from-blue-50 via-white to-cyan-50 ">
+        <div className="absolute top-5 left-0 w-full z-50 ">
           <Navbar />
         </div>
 
@@ -307,7 +307,7 @@ useEffect(() => {
 
 
         {/* Scroll Prompt Section */}
-        <div className="w-full flex flex-col items-center justify-center py-4 sm:py-6 bg-white relative z-20">
+        <div className="w-full flex flex-col items-center justify-center py-4 sm:py-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50 relative z-20">
           <p className="text-base sm:text-lg font-medium mb-2 sm:mb-4 text-gray-700 animate-pulse">
             Click to see more
           </p>
