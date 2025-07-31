@@ -2,6 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Navbar from "../components/navbar";
+import { motion } from "framer-motion";
 import {
   FaArrowDown,
   FaSearch,
@@ -16,33 +17,33 @@ export default function ProductsPage() {
 
   const products = [
     {
-      title: "Basic Chromium Sulphate Liquid",
+      title: "Hydrogen Peroxide 50%",
       description:
-        "A liquid form of chromium sulphate for easier application in industrial tanning processes.",
-      image: "/images/pro2.jpg",
-    },
-    {
-      title: "Basic Chromium Sulphate",
-      description:
-        "Used mainly in leather tanning, this compound provides excellent chromium content and stability.",
+        "Hydrogen Peroxide 50%, also known as H2O2, is a highly prevalent chemical compound that is renowned for its potent oxidizing properties and broad range of applications.",
       image: "/images/pro1.jpg",
     },
-     {
-      title: "Saccharin Insoluble",
+    {
+      title: "Soda Ash Light",
       description:
-        "A form of saccharin used in specialized formulations, especially where solubility control is important.",
-      image: "/images/pro7.jpg",
+        "Soda Ash Light, also known as sodium carbonate (Na₂CO₃), is a versatile and essential chemical compound widely used across various industries.",
+      image: "/images/pro2.jpg",
+    },
+     {
+      title: "Sodium sulfate",
+      description:
+        "Sodium sulfate  is the inorganic compound with formula Na2SO4 as well as several related hydrates.",
+      image: "/images/pro3.jpg",
     },
     {
-      title: "Manganese Dioxide",
+      title: "Tonsil Optimum 230 FF ",
       description:
-        "Commonly used in dry-cell batteries and in the glass industry for coloring and oxidation.",
+        "TONSIL® OPTIMUM 230 FF is a highly active bleaching earth with superior filtration performance aimed for higher throughput. It is manufactured by acid activation of calcium bentonite, processed under strict control and monitoring of quality",
       image: "/images/pro4.jpg",
     },
      {
-      title: "Saccharin Sodium",
+      title: "Calcium hypochlorite, hydrated",
       description:
-        "A calorie-free artificial sweetener used in food and beverages as a sugar substitute.",
+        "Calcium hypochlorite, hydrated is a white granular solid or tablets compressed from the granules having an odor of chlorine. It is noncombustible, but it will accelerate the burning of combustible materials.",
       image: "/images/pro5.jpg",
     },
     {
@@ -53,15 +54,64 @@ export default function ProductsPage() {
     },
    
     {
-      title: "Boric Acid",
+      title: "Trichloroisocyanuric acid",
       description:
-        "Widely used in glass, ceramics, agriculture, and as a flame retardant in multiple industries.",
-      image: "/images/pro3.jpg",
+        "Trichloroisocyanuric acid is an organic compound with the formula (CONCl)3. It is used as an industrial disinfectant, bleaching agent and a reagent in organic synthesis.[1][2][3] This white crystalline powder, which has a strong chlorine odour,is sometimes sold in tablet or granule form for domestic and industrial use.",
+      image: "/images/pro7.jpg",
+    },
+
+    {
+      title: "Aluminium Sulphate 17% ",
+      description:
+        "Aluminium Sulphate 17% Iron free Al2O3 in sulphate form. Aluminium sulphate is used in water purification and as a mordant in dyeing and printing textiles.",
+      image: "/images/pro8.jpg",
+    },
+
+    {
+      title: "Magnesium sulfate heptahydrate",
+      description:
+        "Magnesium sulfate heptahydrate (MgSO4·7H2O), commonly known as Epsom salt, is a white crystalline solid that is highly soluble in water and has various applications in agriculture, medicine, and industry.",
+      image: "/images/pro9.jpg",
+    },
+
+    {
+      title: "Hydrated Lime Malaysia",
+      description:
+        "Hydrated Lime, or Calcium Hydroxide, is a white powder widely celebrated for its alkaline properties. With high solubility in water, its stability and compatibility have made it a preferred choice across diverse applications.",
+      image: "/images/1000152735.jpg",
     },
     
+    {
+      title: "Nitric acid 68%",
+      description:
+        "Nitric acid (HNO3) at 68% concentration is a highly corrosive mineral acid commonly used in various industries. It is typically colorless but can acquire a yellow tint over time due to decomposition into nitrogen oxides.",
+      image: "/images/pro11.jpg",
+    },
    
+    {
+      title: "Caustic soda flakes",
+      description:
+        "Caustic soda flakes, or sodium hydroxide (NaOH), are highly versatile and widely used in various industries for their strong alkaline properties and effectiveness in chemical processes.",
+      image: "/images/pro12.jpg",
+    },
+
     
   ];
+
+  const fadeInUp = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+};
+
+const slideInLeft = {
+  hidden: { opacity: 0, x: -100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+};
+
+const slideInRight = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8 } }
+};
 
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -287,7 +337,7 @@ useEffect(() => {
         {/* Hero Section */}
        <div className="relative h-[500px] sm:h-[500px] w-full">
   <Image
-    src="/images/hero-bg5.jpg"
+    src="/images/3696093.jpg"
     alt="Hero"
     layout="fill"
     objectFit="fill"
@@ -307,7 +357,7 @@ useEffect(() => {
 
 
         {/* Scroll Prompt Section */}
-        <div className="w-full flex flex-col items-center justify-center py-4 sm:py-6 bg-gradient-to-r from-blue-50 via-white to-cyan-50 relative z-20">
+        <div className="w-full flex flex-col items-center justify-center py-4 sm:py-6  relative z-20">
           <p className="text-base sm:text-lg font-medium mb-2 sm:mb-4 text-gray-700 animate-pulse">
             Click to see more
           </p>
@@ -359,7 +409,7 @@ useEffect(() => {
     isWashButtonsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
   }`}
 >
-  {["Hand Wash", "Dish Wash", "Tile Cleaner", "Hand Sanitizer"].map(
+  {["Body Wash", "Face Wash", "Dish Wash", "Air Freshner", "Car Shampoo"].map(
     (item, index) => (
       <button
         key={index}
@@ -381,13 +431,14 @@ useEffect(() => {
 >
   <div className="flex flex-wrap justify-center gap-4">
     {[
-      "Basic Chromium Sulphate Liquid",
-      "Basic Chromium Sulphate",
-      "Saccharin Insoluble",
-      "Manganese Dioxide",
-      "Saccharin Sodium",
+      "Tonsil Optimum 230 FF",
+      "Aluminium Sulphate",
+      "Hydrogen Peroxide",
+      "Soda Ash Light",
+      "Sodium sulfate",
       "Sodium Nitrate",
-      "Boric Acid",
+      "Nitric acid",
+      ,
     ].map((product, index) => (
       <button
         key={index}
@@ -436,11 +487,11 @@ useEffect(() => {
     }`}
   >
     <Image
-      src="/images/im1.jpg"
+      src="/images/4118ac4f-cecc-4d26-83bf-c9de8a101980.jpg"
       alt="Image One"
       width={400}
       height={300}
-      className="object-cover w-full h-full"
+      className="object-fit w-full h-full"
     />
   </div>
   <div
@@ -471,60 +522,128 @@ useEffect(() => {
       Our Products
     </h2>
   </div>
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-black">
-    {[
-      {
-        title: "Hand Wash",
-        description:
-          "Gentle and effective formula for clean, soft hands.",
-        image: "/images/handwash.jpg",
-      },
-      {
-        title: "Dishwash",
-        description:
-          "Tough on grease, gentle on hands. Sparkling clean dishes every time.",
-        image: "/images/dishwash.jpg",
-      },
-      {
-        title: "Tile Cleaner",
-        description:
-          "Removes tough stains and restores shine to tiles and surfaces.",
-        image: "/images/tilecleaner.jpg",
-      },
-      {
-        title: "Sanitizer",
-        description:
-          "Fast-acting sanitizer to kill 99.9% of germs and bacteria.",
-        image: "/images/sani.jpg",
-      },
-    ].map((item, index) => (
-      <div
-        key={index}
-        ref={(el) => (ourProductsRefs.current[index] = el)}
-        className={`bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 flex flex-col ${
-          visibleOurProducts[index] ? "fade-in-up" : "opacity-0"
-        }`}
-      >
-        <Image
-          src={item.image}
-          alt={item.title}
-          width={400}
-          height={350}
-          className="object-cover w-full h-60"
+ <div className="max-w-7xl mx-auto px-6 sm:px-10 mt-20 mb-12 lg:mb-40 space-y-20 text-black">
+      
+      {/* 1. Body Wash */}
+      <div className="flex flex-col md:flex-row items-center gap-8">
+        <motion.img
+          src="/images/WhatsApp Image 2025-07-15 at 14.13.13_8aac698b.jpg"
+          alt="Body Wash"
+          className="w-full md:w-1/2 rounded-lg shadow-md object-cover h-72"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
         />
-        <div className="p-4 flex-1 w-full">
-          <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-          <p className="text-sm text-gray-600">{item.description}</p>
-          <a
-            href="#"
-            className="text-blue-600 text-sm mt-2 inline-block hover:underline"
-          >
-            Read More
-          </a>
-        </div>
+        <motion.div
+          className="md:w-1/2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideInRight}
+        >
+          <h3 className="text-2xl font-bold mb-4 text-blue-700">Body Wash</h3>
+          <p className="text-gray-700 leading-relaxed">
+            Discover the perfect balance of cleanliness and care with <span className="font-semibold text-blue-900">Jonis Body Wash</span>.
+            Crafted with skin-loving ingredients and nourishing botanicals, our formula gently cleanses while locking in moisture,
+            leaving your skin feeling soft, smooth, and rejuvenated after every wash. Infused with a refreshing fragrance that lingers just right,
+            <span className="font-semibold text-blue-900"> Jonis Body Wash</span> transforms your daily shower into a luxurious self-care ritual.
+            Whether you're starting your morning or winding down at night, our body wash revitalizes your skin and senses.
+            <br /><br />
+            <span className="font-serif text-[1.1rem] block mt-2 text-gray-800">
+              Elevate your shower routine with <span className="font-semibold text-blue-900">Jonis Body Wash</span> — where clean meets comfort.
+            </span>
+          </p>
+        </motion.div>
       </div>
-    ))}
-  </div>
+
+      {/* 2. Personal Care Essentials */}
+      <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+        <motion.img
+          src="/images/WhatsApp Image 2025-07-15 at 14.13.13_90787025.jpg"
+          alt="Personal Care Essentials"
+          className="w-full md:w-1/2 rounded-lg shadow-md object-cover h-72"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        />
+        <motion.div
+          className="md:w-1/2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideInLeft}
+        >
+          <h3 className="text-2xl font-bold mb-4 text-blue-700">Personal Care Essentials</h3>
+          <ul className="list-disc list-inside text-gray-700 space-y-2">
+            <li><strong>Face Wash:</strong> Gently cleanses and refreshes your skin, removing dirt and excess oil for a radiant glow.</li>
+            <li><strong>Body Lotion:</strong> Deeply hydrates and softens your skin, leaving it smooth and nourished all day long.</li>
+            <li><strong>Shampoo:</strong> Cleanses and revitalizes hair, promoting healthy shine and strength from root to tip.</li>
+            <li><strong>Hair Oil:</strong> Nourishes the scalp and strengthens hair, reducing breakage and promoting healthy growth.</li>
+            <li><strong>Nail Polish Remover:</strong> Quickly removes polish while conditioning nails, leaving them clean and residue-free.</li>
+          </ul>
+        </motion.div>
+      </div>
+
+      {/* 3. Cleaning Essentials */}
+      <div className="flex flex-col md:flex-row items-center gap-8">
+        <motion.img
+          src="/images/WhatsApp Image 2025-07-15 at 14.13.14_d48018e9.jpg"
+          alt="Cleaning Essentials"
+          className="w-full md:w-1/2 rounded-lg shadow-md object-cover h-72"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        />
+        <motion.div
+          className="md:w-1/2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideInRight}
+        >
+          <h3 className="text-2xl font-bold mb-4 text-blue-700">Cleaning Essentials</h3>
+          <ul className="list-disc list-inside text-gray-700 space-y-2">
+            <li><strong>Car Shampoo:</strong> Removes dirt and grime gently while protecting your car’s finish.</li>
+            <li><strong>Dish Wash:</strong> Cuts through grease and food residue, leaving dishes sparkling clean.</li>
+            <li><strong>Toilet Bowl Cleaner:</strong> Powerfully eliminates stains and bacteria for a fresh and sanitized toilet.</li>
+          </ul>
+        </motion.div>
+      </div>
+
+      {/* 4. Glycerine (Vegetable) Glycerol */}
+      <div className="flex flex-col md:flex-row-reverse items-center gap-8">
+        <motion.img
+          src="/images/WhatsApp Image 2025-07-15 at 14.13.15_03ee6694.jpg"
+          alt="Glycerine (Vegetable) Glycerol"
+          className="w-full md:w-1/2 rounded-lg shadow-md object-cover h-72"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        />
+        <motion.div
+          className="md:w-1/2"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={slideInLeft}
+        >
+          <h3 className="text-2xl font-bold mb-4 text-blue-700">Glycerine (Vegetable) Glycerol</h3>
+          <p className="text-gray-700 leading-relaxed">
+            Glycerine (Vegetable) Glycerol is a natural, colorless, and odorless liquid derived from plant-based oils such as coconut, palm, or soy.
+            It is a versatile, non-toxic compound known for its excellent moisturizing and humectant properties, which means it attracts and retains moisture.
+            Widely used in cosmetics, personal care products, and pharmaceuticals, vegetable glycerine helps to soften and soothe the skin,
+            making it an ideal ingredient in lotions, creams, soaps, and facial cleansers. It is also valued for its gentle nature,
+            making it suitable for sensitive skin types. Additionally, glycerine is used as a sweetener and preservative in food products
+            and as a base in pharmaceutical formulations.
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  
 </div>
 
 
@@ -560,7 +679,7 @@ useEffect(() => {
 
   {/* Chemical Products Section */}
   <div
-    className={`text-black py-10 px-4 sm:px-10 grid gap-8 max-w-7xl mx-auto ${
+    className={`text-black  py-10 px-4 sm:px-10 grid gap-8 max-w-7xl mx-auto ${
       viewType === "grid" ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1"
     }`}
   >
@@ -579,7 +698,7 @@ useEffect(() => {
           alt={product.title}
           width={viewType === "grid" ? 160 : 200}
           height={viewType === "grid" ? 100 : 150}
-          className={`object-cover ${
+          className={`object-scale-down ${
             viewType === "grid"
               ? "w-full h-48"
               : "w-full md:w-[200px] md:h-full"
@@ -588,12 +707,7 @@ useEffect(() => {
         <div className="p-4 flex-1 w-full">
           <h3 className="font-semibold text-lg mb-2">{product.title}</h3>
           <p className="text-sm text-gray-600">{product.description}</p>
-          <a
-            href="#"
-            className="text-blue-600 text-sm mt-2 inline-block hover:underline"
-          >
-            Read More
-          </a>
+          
         </div>
       </div>
     ))}
